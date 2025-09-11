@@ -214,7 +214,6 @@
     }
   }
 
-  /* Focus accessibility */
   .diamond-wrapper:focus .diamond-card {
     outline: 3px solid #3b82f6;
     outline-offset: 2px;

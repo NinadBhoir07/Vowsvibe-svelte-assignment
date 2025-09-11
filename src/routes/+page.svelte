@@ -49,7 +49,6 @@
 <Header />
 <Hero />
 
-<!-- Dynamic content area with smooth transitions -->
 <div class=" min-h-inherit">
   {#if $currentView === "chapters"}
     <!-- Chapter Grid Section -->

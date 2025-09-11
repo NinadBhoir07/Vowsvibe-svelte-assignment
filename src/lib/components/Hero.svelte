@@ -1,5 +1,4 @@
 <script>
-  // Hero section component - No ChapterGrid import needed here
 </script>
 
 <div class="min-h-[400px] w-full relative">

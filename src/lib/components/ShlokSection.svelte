@@ -35,9 +35,6 @@
       <div>
         <p class="text-xl font-bold text-gray-800">Verse</p>
       </div>
-      <div>
-        <!-- Additional sorting/filtering options can be added here -->
-      </div>
     </div>
 
     <div class="relative">

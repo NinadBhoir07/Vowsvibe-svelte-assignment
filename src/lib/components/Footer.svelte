@@ -1,5 +1,4 @@
 <script>
-  // Footer component
   export let size = "w-6 h-6";
   export let showLabels = false;
 </script>

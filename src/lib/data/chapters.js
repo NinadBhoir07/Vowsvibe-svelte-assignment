@@ -27,7 +27,6 @@ export const shloksData = {
       translation: "O my teacher, behold the great army of the sons of Pandu, so expertly arranged by your intelligent disciple, the son of Drupada.",
       name: "2"
     },
-    // Add more shloks as needed
     {
       shlok_no: "99",
       lyrics: "यत्र योगेश्वरः कृष्णो यत्र पार्थो धनुर्धरः।\nतत्र श्रीर्विजयो भूतिर्ध्रुवा नीतिर्मतिर्मम॥",
@@ -48,7 +47,6 @@ export const shloksData = {
       translation: "The Supreme Personality of Godhead said: My dear Arjuna, how have these impurities come upon you? They are not at all befitting a man who knows the value of life. They lead not to higher planets but to infamy.",
       name: "1"
     },
-    // Add more shloks for chapter 2...
     {
       shlok_no: "99",
       lyrics: "एषा ब्राह्मी स्थितिः पार्थ नैनां प्राप्य विमुह्यति।\nस्थित्वास्यामन्तकालेऽपि ब्रह्मनिर्वाणमृच्छति॥",
@@ -56,10 +54,9 @@ export const shloksData = {
       name: "End of Chapter"
     }
   ]
-  // Add data for remaining chapters (3-18) following the same pattern
 };
 
-// Generate shlok data for remaining chapters (3-18) with sample content
+
 for (let i = 3; i <= 18; i++) {
   shloksData[i] = [
     {
