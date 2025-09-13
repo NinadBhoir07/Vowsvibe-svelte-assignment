@@ -9,6 +9,10 @@
 
   function toggleMobileMenu() {
     mobileMenuOpen = !mobileMenuOpen;
+    // Close all dropdowns when mobile menu is toggled
+    if (mobileMenuOpen) {
+      closeAllDropdowns();
+    }
   }
 
   function toggleDropdown(dropdown) {
@@ -35,14 +39,19 @@
   function handleSearch() {
     console.log("Search clicked");
   }
+
+  function closeMobileMenu() {
+    mobileMenuOpen = false;
+    closeAllDropdowns();
+  }
 </script>
 
-<header class="bg-white flex items-center justify-between shadow-md h-32">
+<header class="bg-white shadow-md sticky top-0 z-50">
   <nav class="w-full">
     <div class="mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-16">
+      <div class="flex justify-between items-center h-16 md:h-20 lg:h-24">
         <!-- Logo -->
-        <div class="flex-shrink-0">
+        <div class="flex-shrink-0 z-50">
           <a
             href="#"
             on:click={() => window.location.reload()}
@@ -51,19 +60,19 @@
             <img
               src="images/logo.png"
               alt="Sanskrit Logo"
-              class="h-12 w-auto"
+              class="h-8 w-auto sm:h-10 md:h-12 lg:h-14"
             />
           </a>
         </div>
 
         <!-- Desktop Navigation -->
-        <div class="hidden lg:block">
-          <div class="flex items-center space-x-4">
+        <div class="hidden xl:block">
+          <div class="flex items-center space-x-2 2xl:space-x-4">
             <!-- Search Icon -->
             <a
               href="#"
               on:click={handleSearch}
-              class="text-gray-700 hover:text-red-600 transition-colors duration-300 px-3 py-2"
+              class="text-gray-700 hover:text-red-600 transition-colors duration-300 px-2 py-2"
             >
               <i class="fa fa-search text-lg"></i>
             </a>
@@ -76,11 +85,11 @@
             >
               <a
                 href="#"
-                class="text-gray-700 hover:text-red-600 font-medium px-3 py-2 text-2xl uppercase tracking-wide transition-colors duration-300 flex items-center"
+                class="text-gray-700 hover:text-red-600 font-medium px-2 py-2 text-lg xl:text-lg 2xl:text-lg uppercase tracking-wide transition-colors duration-300 flex items-center"
               >
                 ĀYURVEDA
                 <svg
-                  class="ml-1 h-4 w-4"
+                  class="ml-1 h-3 w-3 xl:h-4 xl:w-4"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -100,17 +109,17 @@
               >
                 <a
                   href="#"
-                  class="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
+                  class="block px-4 py-2 text-lg xl:text-lg text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
                   >Introduction</a
                 >
                 <a
                   href="#"
-                  class="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
+                  class="block px-4 py-2 text-lg xl:text-lg text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
                   >Timing</a
                 >
                 <a
                   href="#"
-                  class="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
+                  class="block px-4 py-2 text-lg xl:text-lg text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
                   >Food</a
                 >
               </div>
@@ -124,11 +133,11 @@
             >
               <a
                 href="#"
-                class="text-gray-700 hover:text-red-600 font-medium px-3 py-2 text-2xl uppercase tracking-wide transition-colors duration-300 flex items-center"
+                class="text-gray-700 hover:text-red-600 font-medium px-2 py-2 text-lg xl:text-lg 2xl:text-lg uppercase tracking-wide transition-colors duration-300 flex items-center"
               >
                 YOGASŪTRAS
                 <svg
-                  class="ml-1 h-4 w-4"
+                  class="ml-1 h-3 w-3 xl:h-4 xl:w-4"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -148,27 +157,27 @@
               >
                 <a
                   href="#"
-                  class="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
+                  class="block px-4 py-2 text-lg xl:text-lg text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
                   >Introduction</a
                 >
                 <a
                   href="#"
-                  class="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
+                  class="block px-4 py-2 text-lg xl:text-lg text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
                   >Obstacles</a
                 >
                 <a
                   href="#"
-                  class="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
+                  class="block px-4 py-2 text-lg xl:text-lg text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
                   >Practices</a
                 >
                 <a
                   href="#"
-                  class="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
+                  class="block px-4 py-2 text-lg xl:text-lg text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
                   >Yogāsana</a
                 >
                 <a
                   href="#"
-                  class="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
+                  class="block px-4 py-2 text-lg xl:text-lg text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
                   >Glossary</a
                 >
               </div>
@@ -177,7 +186,7 @@
             <!-- BHAGAVAD GĪTĀ -->
             <a
               href="#"
-              class="text-gray-700 hover:text-red-600 font-medium px-3 py-2 text-2xl uppercase tracking-wide transition-colors duration-300"
+              class="text-gray-700 hover:text-red-600 font-medium px-2 py-2 text-lg xl:text-lg 2xl:text-lg uppercase tracking-wide transition-colors duration-300"
               >BHAGAVAD GĪTĀ</a
             >
 
@@ -189,11 +198,11 @@
             >
               <a
                 href="#"
-                class="text-gray-700 hover:text-red-600 font-medium px-3 py-2 text-2xl uppercase tracking-wide transition-colors duration-300 flex items-center"
+                class="text-gray-700 hover:text-red-600 font-medium px-2 py-2 text-lg xl:text-lg 2xl:text-lg uppercase tracking-wide transition-colors duration-300 flex items-center"
               >
                 UPANIṢADS
                 <svg
-                  class="ml-1 h-4 w-4"
+                  class="ml-1 h-3 w-3 xl:h-4 xl:w-4"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -213,42 +222,42 @@
               >
                 <a
                   href="#"
-                  class="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
+                  class="block px-4 py-2 text-lg xl:text-lg text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
                   >ĪŚOPANIṢAD</a
                 >
                 <a
                   href="#"
-                  class="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
+                  class="block px-4 py-2 text-lg xl:text-lg text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
                   >TAITTIRĪYOPANIṢAD</a
                 >
                 <a
                   href="#"
-                  class="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
+                  class="block px-4 py-2 text-lg xl:text-lg text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
                   >MĀṆḌŪKYOPANIṢAD</a
                 >
                 <a
                   href="#"
-                  class="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
+                  class="block px-4 py-2 text-lg xl:text-lg text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
                   >KENOPANIṢAD</a
                 >
                 <a
                   href="#"
-                  class="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
+                  class="block px-4 py-2 text-lg xl:textlg text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
                   >KAṬHOPANIṢAD</a
                 >
                 <a
                   href="#"
-                  class="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
+                  class="block px-4 py-2 text-lg xl:text-lg text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
                   >AITAREYOPANIṢAD</a
                 >
                 <a
                   href="#"
-                  class="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
+                  class="block px-4 py-2 text-lg xl:text-lg text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
                   >MUṆḌAKOPANIṢAD</a
                 >
                 <a
                   href="#"
-                  class="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
+                  class="block px-4 py-2 text-lg xl:text-lg text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
                   >PRAŚNOPANIṢAD</a
                 >
               </div>
@@ -262,11 +271,11 @@
             >
               <a
                 href="#"
-                class="text-gray-700 hover:text-red-600 font-medium px-3 py-2 text-2xl uppercase tracking-wide transition-colors duration-300 flex items-center"
+                class="text-gray-700 hover:text-red-600 font-medium px-2 py-2 text-lg xl:text-lg 2xl:text-lg uppercase tracking-wide transition-colors duration-300 flex items-center"
               >
                 SANSKRIT
                 <svg
-                  class="ml-1 h-4 w-4"
+                  class="ml-1 h-3 w-3 xl:h-4 xl:w-4"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -286,22 +295,22 @@
               >
                 <a
                   href="#"
-                  class="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
+                  class="block px-4 py-2 text-lg xl:text-lg text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
                   >Devotional Songs</a
                 >
                 <a
                   href="#"
-                  class="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
+                  class="block px-4 py-2 text-lg xl:text-lg text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
                   >Grammar Songs</a
                 >
                 <a
                   href="#"
-                  class="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
+                  class="block px-4 py-2 text-lg xl:text-lg text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
                   >Fun Songs</a
                 >
                 <a
                   href="#"
-                  class="block px-4 py-2 text-xl text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
+                  class="block px-4 py-2 text-lg xl:text-lg text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors duration-300"
                   >Script Songs</a
                 >
               </div>
@@ -310,17 +319,18 @@
             <!-- Contact Us -->
             <a
               href="#"
-              class="text-gray-700 hover:text-red-600 font-medium px-3 py-2 text-2xl uppercase tracking-wide transition-colors duration-300"
+              class="text-gray-700 hover:text-red-600 font-medium px-2 py-2 text-lg xl:text-lg 2xl:text-lg uppercase tracking-wide transition-colors duration-300"
               >Contact us</a
             >
           </div>
         </div>
 
         <!-- Mobile menu button -->
-        <div class="lg:hidden">
+        <div class="xl:hidden z-50">
           <button
             on:click={toggleMobileMenu}
-            class="text-gray-700 hover:text-red-600 focus:outline-none focus:text-red-600 p-2"
+            class="text-gray-700 hover:text-red-600 focus:outline-none focus:text-red-600 p-2 transition-colors duration-300"
+            aria-label="Toggle mobile menu"
           >
             <svg
               class="h-6 w-6"
@@ -348,26 +358,68 @@
         </div>
       </div>
 
-      <!-- Mobile menu -->
-      <div class="lg:hidden {mobileMenuOpen ? 'block' : 'hidden'}">
-        <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
-          <a
-            href="#"
-            on:click={handleSearch}
-            class="block px-3 py-2 text-gray-700 hover:text-red-600 transition-colors duration-300"
-          >
-            <i class="fa fa-search mr-2"></i>Search
-          </a>
+      <!-- Mobile menu overlay -->
+      {#if mobileMenuOpen}
+        <div
+          class="fixed inset-0 bg-black bg-opacity-50 z-40 xl:hidden"
+          on:click={closeMobileMenu}
+        ></div>
+      {/if}
 
-          <div class="space-y-1">
-            <div class="px-3 py-2">
+      <!-- Mobile menu -->
+      <div
+        class="xl:hidden fixed top-0 right-0 h-full w-80 max-w-full bg-white transform transition-transform duration-300 ease-in-out z-50 {mobileMenuOpen
+          ? 'translate-x-0'
+          : 'translate-x-full'} overflow-y-auto"
+      >
+        <div class="flex flex-col h-full">
+          <!-- Mobile menu header -->
+          <div
+            class="flex items-center justify-between p-4 border-b border-gray-200"
+          >
+            <img src="images/logo.png" alt="Sanskrit Logo" class="h-8 w-auto" />
+            <button
+              on:click={closeMobileMenu}
+              class="text-gray-700 hover:text-red-600 p-2"
+              aria-label="Close mobile menu"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Mobile menu content -->
+          <div class="flex-1 px-4 py-6 space-y-6">
+            <!-- Search -->
+            <a
+              href="#"
+              on:click={handleSearch}
+              class="flex items-center px-3 py-3 text-gray-700 hover:text-red-600 hover:bg-gray-50 rounded-lg transition-colors duration-300"
+            >
+              <i class="fa fa-search mr-3 text-lg"></i>
+              <span class="text-lg font-medium">Search</span>
+            </a>
+
+            <!-- ĀYURVEDA Dropdown -->
+            <div class="space-y-2">
               <button
                 on:click={() => (ayurvedaDropdownOpen = !ayurvedaDropdownOpen)}
-                class="flex justify-between w-full text-left text-gray-700 hover:text-red-600 font-medium text-sm uppercase tracking-wide"
+                class="flex justify-between items-center w-full px-3 py-3 text-left text-gray-700 hover:text-red-600 hover:bg-gray-50 font-medium text-lg uppercase tracking-wide rounded-lg transition-colors duration-300"
               >
                 ĀYURVEDA
                 <svg
-                  class="h-4 w-4 transform {ayurvedaDropdownOpen
+                  class="h-5 w-5 transform {ayurvedaDropdownOpen
                     ? 'rotate-180'
                     : ''} transition-transform duration-200"
                   fill="none"
@@ -383,37 +435,36 @@
                 </svg>
               </button>
               {#if ayurvedaDropdownOpen}
-                <div class="pl-4 mt-2 space-y-1">
+                <div class="pl-6 space-y-2 border-l-2 border-gray-200 ml-3">
                   <a
                     href="#"
-                    class="block py-1 text-sm text-gray-600 hover:text-red-600"
-                    >Introduction</a
+                    class="block py-2 px-3 text-gray-600 hover:text-red-600 hover:bg-gray-50 rounded transition-colors duration-300"
+                    on:click={closeMobileMenu}>Introduction</a
                   >
                   <a
                     href="#"
-                    class="block py-1 text-sm text-gray-600 hover:text-red-600"
-                    >Timing</a
+                    class="block py-2 px-3 text-gray-600 hover:text-red-600 hover:bg-gray-50 rounded transition-colors duration-300"
+                    on:click={closeMobileMenu}>Timing</a
                   >
                   <a
                     href="#"
-                    class="block py-1 text-sm text-gray-600 hover:text-red-600"
-                    >Food</a
+                    class="block py-2 px-3 text-gray-600 hover:text-red-600 hover:bg-gray-50 rounded transition-colors duration-300"
+                    on:click={closeMobileMenu}>Food</a
                   >
                 </div>
               {/if}
             </div>
-          </div>
 
-          <div class="space-y-1">
-            <div class="px-3 py-2">
+            <!-- YOGASŪTRAS Dropdown -->
+            <div class="space-y-2">
               <button
                 on:click={() =>
                   (yogasutrasDropdownOpen = !yogasutrasDropdownOpen)}
-                class="flex justify-between w-full text-left text-gray-700 hover:text-red-600 font-medium text-sm uppercase tracking-wide"
+                class="flex justify-between items-center w-full px-3 py-3 text-left text-gray-700 hover:text-red-600 hover:bg-gray-50 font-medium text-lg uppercase tracking-wide rounded-lg transition-colors duration-300"
               >
                 YOGASŪTRAS
                 <svg
-                  class="h-4 w-4 transform {yogasutrasDropdownOpen
+                  class="h-5 w-5 transform {yogasutrasDropdownOpen
                     ? 'rotate-180'
                     : ''} transition-transform duration-200"
                   fill="none"
@@ -429,53 +480,53 @@
                 </svg>
               </button>
               {#if yogasutrasDropdownOpen}
-                <div class="pl-4 mt-2 space-y-1">
+                <div class="pl-6 space-y-2 border-l-2 border-gray-200 ml-3">
                   <a
                     href="#"
-                    class="block py-1 text-sm text-gray-600 hover:text-red-600"
-                    >Introduction</a
+                    class="block py-2 px-3 text-gray-600 hover:text-red-600 hover:bg-gray-50 rounded transition-colors duration-300"
+                    on:click={closeMobileMenu}>Introduction</a
                   >
                   <a
                     href="#"
-                    class="block py-1 text-sm text-gray-600 hover:text-red-600"
-                    >Obstacles</a
+                    class="block py-2 px-3 text-gray-600 hover:text-red-600 hover:bg-gray-50 rounded transition-colors duration-300"
+                    on:click={closeMobileMenu}>Obstacles</a
                   >
                   <a
                     href="#"
-                    class="block py-1 text-sm text-gray-600 hover:text-red-600"
-                    >Practices</a
+                    class="block py-2 px-3 text-gray-600 hover:text-red-600 hover:bg-gray-50 rounded transition-colors duration-300"
+                    on:click={closeMobileMenu}>Practices</a
                   >
                   <a
                     href="#"
-                    class="block py-1 text-sm text-gray-600 hover:text-red-600"
-                    >Yogāsana</a
+                    class="block py-2 px-3 text-gray-600 hover:text-red-600 hover:bg-gray-50 rounded transition-colors duration-300"
+                    on:click={closeMobileMenu}>Yogāsana</a
                   >
                   <a
                     href="#"
-                    class="block py-1 text-sm text-gray-600 hover:text-red-600"
-                    >Glossary</a
+                    class="block py-2 px-3 text-gray-600 hover:text-red-600 hover:bg-gray-50 rounded transition-colors duration-300"
+                    on:click={closeMobileMenu}>Glossary</a
                   >
                 </div>
               {/if}
             </div>
-          </div>
 
-          <a
-            href="#"
-            class="block px-3 py-2 text-gray-700 hover:text-red-600 font-medium text-sm uppercase tracking-wide"
-            >BHAGAVAD GĪTĀ</a
-          >
+            <!-- BHAGAVAD GĪTĀ -->
+            <a
+              href="#"
+              class="block px-3 py-3 text-gray-700 hover:text-red-600 hover:bg-gray-50 font-medium text-lg uppercase tracking-wide rounded-lg transition-colors duration-300"
+              on:click={closeMobileMenu}>BHAGAVAD GĪTĀ</a
+            >
 
-          <div class="space-y-1">
-            <div class="px-3 py-2">
+            <!-- UPANIṢADS Dropdown -->
+            <div class="space-y-2">
               <button
                 on:click={() =>
                   (upanishadsDropdownOpen = !upanishadsDropdownOpen)}
-                class="flex justify-between w-full text-left text-gray-700 hover:text-red-600 font-medium text-sm uppercase tracking-wide"
+                class="flex justify-between items-center w-full px-3 py-3 text-left text-gray-700 hover:text-red-600 hover:bg-gray-50 font-medium text-lg uppercase tracking-wide rounded-lg transition-colors duration-300"
               >
                 UPANIṢADS
                 <svg
-                  class="h-4 w-4 transform {upanishadsDropdownOpen
+                  class="h-5 w-5 transform {upanishadsDropdownOpen
                     ? 'rotate-180'
                     : ''} transition-transform duration-200"
                   fill="none"
@@ -491,61 +542,62 @@
                 </svg>
               </button>
               {#if upanishadsDropdownOpen}
-                <div class="pl-4 mt-2 space-y-1">
+                <div
+                  class="pl-6 space-y-2 border-l-2 border-gray-200 ml-3 max-h-48 overflow-y-auto"
+                >
                   <a
                     href="#"
-                    class="block py-1 text-sm text-gray-600 hover:text-red-600"
-                    >ĪŚOPANIṢAD</a
+                    class="block py-2 px-3 text-gray-600 hover:text-red-600 hover:bg-gray-50 rounded transition-colors duration-300"
+                    on:click={closeMobileMenu}>ĪŚOPANIṢAD</a
                   >
                   <a
                     href="#"
-                    class="block py-1 text-sm text-gray-600 hover:text-red-600"
-                    >TAITTIRĪYOPANIṢAD</a
+                    class="block py-2 px-3 text-gray-600 hover:text-red-600 hover:bg-gray-50 rounded transition-colors duration-300"
+                    on:click={closeMobileMenu}>TAITTIRĪYOPANIṢAD</a
                   >
                   <a
                     href="#"
-                    class="block py-1 text-sm text-gray-600 hover:text-red-600"
-                    >MĀṆḌŪKYOPANIṢAD</a
+                    class="block py-2 px-3 text-gray-600 hover:text-red-600 hover:bg-gray-50 rounded transition-colors duration-300"
+                    on:click={closeMobileMenu}>MĀṆḌŪKYOPANIṢAD</a
                   >
                   <a
                     href="#"
-                    class="block py-1 text-sm text-gray-600 hover:text-red-600"
-                    >KENOPANIṢAD</a
+                    class="block py-2 px-3 text-gray-600 hover:text-red-600 hover:bg-gray-50 rounded transition-colors duration-300"
+                    on:click={closeMobileMenu}>KENOPANIṢAD</a
                   >
                   <a
                     href="#"
-                    class="block py-1 text-sm text-gray-600 hover:text-red-600"
-                    >KAṬHOPANIṢAD</a
+                    class="block py-2 px-3 text-gray-600 hover:text-red-600 hover:bg-gray-50 rounded transition-colors duration-300"
+                    on:click={closeMobileMenu}>KAṬHOPANIṢAD</a
                   >
                   <a
                     href="#"
-                    class="block py-1 text-sm text-gray-600 hover:text-red-600"
-                    >AITAREYOPANIṢAD</a
+                    class="block py-2 px-3 text-gray-600 hover:text-red-600 hover:bg-gray-50 rounded transition-colors duration-300"
+                    on:click={closeMobileMenu}>AITAREYOPANIṢAD</a
                   >
                   <a
                     href="#"
-                    class="block py-1 text-sm text-gray-600 hover:text-red-600"
-                    >MUṆḌAKOPANIṢAD</a
+                    class="block py-2 px-3 text-gray-600 hover:text-red-600 hover:bg-gray-50 rounded transition-colors duration-300"
+                    on:click={closeMobileMenu}>MUṆḌAKOPANIṢAD</a
                   >
                   <a
                     href="#"
-                    class="block py-1 text-sm text-gray-600 hover:text-red-600"
-                    >PRAŚNOPANIṢAD</a
+                    class="block py-2 px-3 text-gray-600 hover:text-red-600 hover:bg-gray-50 rounded transition-colors duration-300"
+                    on:click={closeMobileMenu}>PRAŚNOPANIṢAD</a
                   >
                 </div>
               {/if}
             </div>
-          </div>
 
-          <div class="space-y-1">
-            <div class="px-3 py-2">
+            <!-- SANSKRIT Dropdown -->
+            <div class="space-y-2">
               <button
                 on:click={() => (sanskritDropdownOpen = !sanskritDropdownOpen)}
-                class="flex justify-between w-full text-left text-gray-700 hover:text-red-600 font-medium text-sm uppercase tracking-wide"
+                class="flex justify-between items-center w-full px-3 py-3 text-left text-gray-700 hover:text-red-600 hover:bg-gray-50 font-medium text-lg uppercase tracking-wide rounded-lg transition-colors duration-300"
               >
                 SANSKRIT
                 <svg
-                  class="h-4 w-4 transform {sanskritDropdownOpen
+                  class="h-5 w-5 transform {sanskritDropdownOpen
                     ? 'rotate-180'
                     : ''} transition-transform duration-200"
                   fill="none"
@@ -561,37 +613,38 @@
                 </svg>
               </button>
               {#if sanskritDropdownOpen}
-                <div class="pl-4 mt-2 space-y-1">
+                <div class="pl-6 space-y-2 border-l-2 border-gray-200 ml-3">
                   <a
                     href="#"
-                    class="block py-1 text-sm text-gray-600 hover:text-red-600"
-                    >Devotional Songs</a
+                    class="block py-2 px-3 text-gray-600 hover:text-red-600 hover:bg-gray-50 rounded transition-colors duration-300"
+                    on:click={closeMobileMenu}>Devotional Songs</a
                   >
                   <a
                     href="#"
-                    class="block py-1 text-sm text-gray-600 hover:text-red-600"
-                    >Grammar Songs</a
+                    class="block py-2 px-3 text-gray-600 hover:text-red-600 hover:bg-gray-50 rounded transition-colors duration-300"
+                    on:click={closeMobileMenu}>Grammar Songs</a
                   >
                   <a
                     href="#"
-                    class="block py-1 text-sm text-gray-600 hover:text-red-600"
-                    >Fun Songs</a
+                    class="block py-2 px-3 text-gray-600 hover:text-red-600 hover:bg-gray-50 rounded transition-colors duration-300"
+                    on:click={closeMobileMenu}>Fun Songs</a
                   >
                   <a
                     href="#"
-                    class="block py-1 text-sm text-gray-600 hover:text-red-600"
-                    >Script Songs</a
+                    class="block py-2 px-3 text-gray-600 hover:text-red-600 hover:bg-gray-50 rounded transition-colors duration-300"
+                    on:click={closeMobileMenu}>Script Songs</a
                   >
                 </div>
               {/if}
             </div>
-          </div>
 
-          <a
-            href="#"
-            class="block px-3 py-2 text-gray-700 hover:text-red-600 font-medium text-sm uppercase tracking-wide"
-            >Contact us</a
-          >
+            <!-- Contact Us -->
+            <a
+              href="#"
+              class="block px-3 py-3 text-gray-700 hover:text-red-600 hover:bg-gray-50 font-medium text-lg uppercase tracking-wide rounded-lg transition-colors duration-300"
+              on:click={closeMobileMenu}>Contact us</a
+            >
+          </div>
         </div>
       </div>
     </div>

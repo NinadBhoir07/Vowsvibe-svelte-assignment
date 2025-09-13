@@ -11,30 +11,15 @@
     loading,
     error,
     shlokData,
+    loadChapterData,
   } from "../lib/stores/app.js";
-  import { shloksData } from "../lib/data/chapters.js";
   import { fade, fly } from "svelte/transition";
 
-  function handleChapterSelect(event) {
+  async function handleChapterSelect(event) {
     const chapter = event.detail;
     selectedChapter.set(chapter);
     currentView.set("shloks");
-
-    // Simulate loading
-    loading.set(true);
-    error.set(null);
-
-    setTimeout(() => {
-      const chapterShloks = shloksData[chapter.number] || [];
-      if (chapterShloks.length === 0) {
-        error.set("No data found");
-        shlokData.set([]);
-      } else {
-        shlokData.set(chapterShloks);
-        error.set(null);
-      }
-      loading.set(false);
-    }, 1000); // Simulate network delay
+    await loadChapterData(chapter.number);
   }
 
   function handleBackToChapters() {

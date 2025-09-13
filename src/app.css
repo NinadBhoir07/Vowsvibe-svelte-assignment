@@ -17,25 +17,65 @@
     background-image: url("images/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
+    background-position: center center;
+    /* Mobile: scroll background, Desktop: fixed background */
+    background-attachment: scroll;
+  }
+
+  /* Fixed background only on larger screens for better mobile performance */
+  @media (min-width: 768px) {
+    body {
+      background-attachment: fixed;
+    }
+  }
+
+  /* Prevent horizontal scroll on mobile */
+  body {
+    @apply overflow-x-hidden;
   }
 }
 
 @layer utilities {
   .gradient-bg {
     background-image: url("images/background.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
   }
 
+  /* Responsive text shadows */
   .text-shadow {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   }
 
+  @media (min-width: 640px) {
+    .text-shadow {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  /* Enhanced backdrop blur with webkit support for mobile */
   .backdrop-blur-sm {
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
+  @media (min-width: 640px) {
+    .backdrop-blur-sm {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+  }
+
+  /* Slower animation on mobile for better performance */
   .animate-spin-custom {
-    animation: spin 1s linear infinite;
+    animation: spin 1.5s linear infinite;
+  }
+
+  @media (min-width: 640px) {
+    .animate-spin-custom {
+      animation: spin 1s linear infinite;
+    }
   }
 
   @keyframes spin {
@@ -45,5 +85,36 @@
     100% {
       transform: rotate(360deg);
     }
+  }
+
+  /* Mobile-specific utility classes */
+  .mobile-hidden {
+    @apply hidden sm:block;
+  }
+
+  .mobile-only {
+    @apply block sm:hidden;
+  }
+
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px] flex items-center justify-center;
+  }
+
+  /* Mobile viewport height */
+  .h-screen-mobile {
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile */
+  }
+
+  .min-h-screen-mobile {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin-custom {
+    animation: none !important;
   }
 }
